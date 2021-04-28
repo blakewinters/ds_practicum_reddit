@@ -171,9 +171,11 @@ for title in titles:
 
 Looking at each data set, certain trends pop out when looking at commonly used words:
 
-![image](https://user-images.githubusercontent.com/1417344/116333145-3a4a2900-a790-11eb-98df-c3669009cadf.png)
+![image](https://user-images.githubusercontent.com/1417344/116335184-a712f280-a793-11eb-87f5-571f4e7c3774.png)
 
-![image](https://user-images.githubusercontent.com/1417344/116333189-48984500-a790-11eb-9da2-a79eec3ce592.png)
+
+![image](https://user-images.githubusercontent.com/1417344/116335214-b2feb480-a793-11eb-816b-4c4adb1c2c84.png)
+
 
 
 
