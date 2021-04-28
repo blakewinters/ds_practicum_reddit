@@ -211,7 +211,8 @@ Plotting the sentiment data with stock price is initially too erratic to draw re
 ```
 df_wsb[['spy','sentiment score']].plot(secondary_y='sentiment score', figsize=(16, 10))
 ```
-![image](https://user-images.githubusercontent.com/1417344/116333277-6a91c780-a790-11eb-9751-0fee2c0586b8.png)
+![image](https://user-images.githubusercontent.com/1417344/116335045-6dda8280-a793-11eb-9a47-9bc83e66e4da.png)
+
 
 
 
