@@ -171,7 +171,11 @@ for title in titles:
 
 Looking at each data set, certain trends pop out when looking at commonly used words:
 
-(replace)
+![image](https://user-images.githubusercontent.com/1417344/116333145-3a4a2900-a790-11eb-98df-c3669009cadf.png)
+
+![image](https://user-images.githubusercontent.com/1417344/116333189-48984500-a790-11eb-9da2-a79eec3ce592.png)
+
+
 
 ```
 # Generate the image
@@ -207,6 +211,9 @@ Plotting the sentiment data with stock price is initially too erratic to draw re
 ```
 df_wsb[['spy','sentiment score']].plot(secondary_y='sentiment score', figsize=(16, 10))
 ```
+![image](https://user-images.githubusercontent.com/1417344/116333277-6a91c780-a790-11eb-9751-0fee2c0586b8.png)
+
+
 
 Fourier Transformations were used to smooth out the sentiment data. Fourier Transform is a time-based transformation, so it can identify cycles in data, so it works well in smoothing out the spikey sentiment data while keeping the underlying patterns.
 
@@ -224,6 +231,14 @@ for num_ in [5, 10, 15, 20]:
 
 Sentiment scores for the comments as well as both bull and bear scores were compared to stock prices. Typically, before, during, and after a strong bull period or strong bear period, you can see drastic swings in bear and bull sentiment.
 
+![image](https://user-images.githubusercontent.com/1417344/116333296-71203f00-a790-11eb-8d4b-c86064ab704d.png)
+
+
+![image](https://user-images.githubusercontent.com/1417344/116333307-754c5c80-a790-11eb-86f0-df34ce2dd80d.png)
+
+
+
+
 
 ## LSTM Model
 
@@ -238,13 +253,22 @@ plt.show()
 
 ```
 
+![image](https://user-images.githubusercontent.com/1417344/116334626-c3faf600-a792-11eb-8f62-d9e62b3f3b19.png)
+
+
 The model performance was pretty consistent regardless of using all input columns or just using the top performing ones, but when limiting to the top correlated fields, the model ran much more quickly.
 
 The key differences between each model were the data sources used. When comparing the out-of-the-box methods on each dataset, the Stocks Keywords model performed the worst, followed by the WSB Comments model, then the WSB Keywords model, and finally the best performing iteration was the Stocks Comments at 14% Mean Absolute Error. After the best performing dataset was selected, I ran through several iterations of the columns used and settled on just using the fields that were most correlated with stock price, because that model performed about twice as well and ran more quickly too. Then, I fine-tuned the model parameters to get the best performing result.
 
+![image](https://user-images.githubusercontent.com/1417344/116334661-d412d580-a792-11eb-8386-5633e537082a.png)
+
+![image](https://user-images.githubusercontent.com/1417344/116334701-e3921e80-a792-11eb-90bc-a0b6493b44e7.png)
 
 
 The model creation process included splitting the data into training and test sets, identifying the window frame to use, looking at the gap for predicting the next day, and converting the datasets into arrays. Then, the model was defined using the Keras library. Several iterations of model specifications were tested. The top performing model had a 14 day lookback window, 3 LSTM layers, and 3 Dense layers. 
+
+![image](https://user-images.githubusercontent.com/1417344/116334757-f7d61b80-a792-11eb-8a71-8fe1a9edd4bf.png)
+
 
 ```
 # get relevant columns and divide into train and test sets
@@ -337,6 +361,8 @@ def test_stationarity(timeseries):
 
 test_stationarity(spy['spy'])
 ```
+![image](https://user-images.githubusercontent.com/1417344/116334881-2c49d780-a793-11eb-89df-8214495f0090.png)
+
 
 Since the p-value is > 0.05, we accept the null hypothesis and conclude that the data is non-stationary. 
 
@@ -347,6 +373,8 @@ fig = plt.figure()
 fig = result.plot()  
 fig.set_size_inches(16, 9)
 ```
+![image](https://user-images.githubusercontent.com/1417344/116334829-19cf9e00-a793-11eb-8221-dd286181263c.png)
+
 
 Taking the log of the spy data was sufficient for solving the stationarity problem in the data.
 
@@ -374,10 +402,14 @@ print(model_autoARIMA.summary())
 model_autoARIMA.plot_diagnostics(figsize=(15,8))
 plt.show()
 ```
+![image](https://user-images.githubusercontent.com/1417344/116334802-0d4b4580-a793-11eb-90e6-af20fda368d7.png)
 
 
 
 Plotting the data showcases how the data performs compared to historical actuals as well as direct comparison against actuals:
+
+![image](https://user-images.githubusercontent.com/1417344/116334780-06243780-a793-11eb-9295-54fa5056ada0.png)
+
 
 ```
 fc_series = pd.Series(fc, index=test_data.index)
