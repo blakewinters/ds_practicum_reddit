@@ -234,10 +234,11 @@ for num_ in [5, 10, 15, 20]:
 
 Sentiment scores for the comments as well as both bull and bear scores were compared to stock prices. Typically, before, during, and after a strong bull period or strong bear period, you can see drastic swings in bear and bull sentiment.
 
-![image](https://user-images.githubusercontent.com/1417344/116333296-71203f00-a790-11eb-8d4b-c86064ab704d.png)
+![image](https://user-images.githubusercontent.com/1417344/116335283-d45fa080-a793-11eb-853c-bee68d080dab.png)
 
 
-![image](https://user-images.githubusercontent.com/1417344/116333307-754c5c80-a790-11eb-86f0-df34ce2dd80d.png)
+
+![image](https://user-images.githubusercontent.com/1417344/116335274-d0cc1980-a793-11eb-9e0f-77a6a64f19f3.png)
 
 
 
